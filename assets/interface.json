@@ -35,7 +35,7 @@
         },
         {
             "name": "选项任务",
-            "entry": "MyTask2",
+            "entry": "clickTask",
             "option": [
                 "任务选项1"
             ]

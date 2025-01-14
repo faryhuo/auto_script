@@ -1,15 +1,31 @@
 {
     "MyTask1": {
         "recognition": "OCR",
-        "expected": "开始",
+        "expected": "商城",
         "action": "Click",
         "next": [
-            "MyTask2"
+            "clickTask"
         ]
     },
-    "MyTask2": {
+    "clickTask": {
         "recognition": "TemplateMatch",
         "template": "task.png",
+        "action": "Click",
+        "next": [
+            "clickActivity"
+        ]
+    },
+    "clickActivity": {
+        "recognition": "OCR",
+        "expected": "限定活动",
+        "action": "Click",
+        "next": [
+            "clickActivity2"
+        ]
+    },
+    "clickActivity2": {
+        "recognition": "OCR",
+        "expected": "重生之我在地下城",
         "action": "Click"
     },
     "MyTask3": {}
