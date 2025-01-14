@@ -1,5 +1,16 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
+    "MyTask1": {
+        "recognition": "OCR",
+        "expected": "开始",
+        "action": "Click",
+        "next": [
+            "MyTask2"
+        ]
+    },
+    "MyTask2": {
+        "recognition": "TemplateMatch",
+        "template": "task.png",
+        "action": "Click"
+    },
     "MyTask3": {}
 }
