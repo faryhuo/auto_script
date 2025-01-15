@@ -1,16 +1,24 @@
 {
-    "MyTask1": {
-        "recognition": "OCR",
-        "expected": "商城",
-        "action": "Click",
+    "startTask": {
+        "recognition": "DirectHit",
+        "pre_delay": 50,
         "next": [
-            "clickTask"
+            "clickTask",
+            "clickActivity",
+            "clickActivity2",
+            "clickSpeed",
+            "clickConfirm",
+            "clickStartGame",
+            "selectRole",
+            "clickStartGame2",
+            "selectSkill"
         ]
     },
     "clickTask": {
         "recognition": "TemplateMatch",
         "template": "task.png",
         "action": "Click",
+        "pre_delay": 50,
         "next": [
             "clickActivity"
         ]
@@ -19,6 +27,7 @@
         "recognition": "OCR",
         "expected": "限定活动",
         "action": "Click",
+        "pre_delay": 50,
         "next": [
             "clickActivity2"
         ]
@@ -28,20 +37,23 @@
         "expected": "重生之我在地下城",
         "action": "Click",
         "next": [
-            "clickSpeed"
+            "clickSpeed",
+            "clickStartGame"
         ]
     },
     "clickSpeed": {
-        "recognition": "OCR",
-        "expected": "消耗疲劳值",
+        "recognition": "TemplateMatch",
+        "template": "speed.png",
         "action": "Click",
+        "pre_delay": 50,
+        "timeout": 5000,
         "next": [
             "clickConfirm"
         ]
     },
     "clickConfirm": {
         "recognition": "OCR",
-        "expected": "确定",
+        "expected": "确认",
         "action": "Click",
         "next": [
             "clickStartGame"
@@ -50,7 +62,50 @@
     "clickStartGame": {
         "recognition": "OCR",
         "expected": "开始游戏",
-        "action": "Click"
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "selectRole"
+        ]
     },
-    "MyTask3": {}
+    "selectRole": {
+        "recognition": "OCR",
+        "expected": "选择角色",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "clickStartGame2"
+        ]
+    },
+    "clickStartGame2": {
+        "recognition": "OCR",
+        "expected": "开始游戏",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "selectSkill"
+        ]
+    },
+    "selectSkill": {
+        "recognition": "OCR",
+        "expected": "选择",
+        "action": "Click",
+        "pre_delay": 50,
+        "timeout": 2000,
+        "next": [
+            "selectSkill2"
+        ],
+        "interrupt": [
+            "selectSkill"
+        ]
+    },
+    "selectSkill2": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "timeout": 2000,
+        "on_error": [
+            "selectSkill"
+        ]
+    }
 }
