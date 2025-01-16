@@ -1,0 +1,23 @@
+{
+    "startApp": {
+        "recognition": "DirectHit",
+        "pre_delay": 50,
+        "action": "StartApp",
+        "decs": "启动程序",
+        "next": [
+            "clickTask",
+            "clickActivity",
+            "clickActivity2",
+            "clickSpeed",
+            "clickConfirm",
+            "clickStartGame",
+            "selectRole",
+            "clickStartGame2",
+            "selectSkill",
+            "getResult",
+            "receive",
+            "clickStore",
+            "changeTan"
+        ]
+    }
+}

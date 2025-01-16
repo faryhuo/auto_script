@@ -26,15 +26,15 @@
             "name": "自动做小游戏",
             "entry": "startTask",
             "option": [
-                "任务选项1"
+                "角色选择"
             ]
         }
     ],
     "option": {
-        "任务选项1": {
+        "角色选择": {
             "cases": [
                 {
-                    "name": "文本1",
+                    "name": "角色1",
                     "pipeline_override": {
                         "OcrTask": {
                             "text": "文本1"
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "name": "文本2",
+                    "name": "角色2",
                     "pipeline_override": {
                         "OcrTask": {
                             "text": "文本2"

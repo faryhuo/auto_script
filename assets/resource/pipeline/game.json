@@ -2,7 +2,9 @@
     "startTask": {
         "recognition": "DirectHit",
         "pre_delay": 50,
+        "decs": "开始任务",
         "next": [
+            "closeAds",
             "clickTask",
             "clickActivity",
             "clickActivity2",
@@ -18,11 +20,27 @@
             "changeTan"
         ]
     },
+    "closeAds": {
+        "recognition": "TemplateMatch",
+        "template": "close3.png",
+        "action": "Click",
+        "roi": [
+            1111,
+            21,
+            1215,
+            122
+        ],
+        "pre_delay": 50,
+        "next": [
+            "clickTask"
+        ]
+    },
     "clickTask": {
         "recognition": "TemplateMatch",
         "template": "task.png",
         "action": "Click",
         "pre_delay": 50,
+        "desc": "点击任务栏",
         "next": [
             "clickActivity"
         ]
@@ -30,6 +48,7 @@
     "clickActivity": {
         "recognition": "OCR",
         "expected": "限定活动",
+        "desc": "点击限定活动",
         "action": "Click",
         "pre_delay": 50,
         "next": [
@@ -39,6 +58,7 @@
     "clickActivity2": {
         "recognition": "OCR",
         "expected": "重生之我在地下城",
+        "desc": "点击小游戏",
         "action": "Click",
         "next": [
             "clickSpeed",
@@ -48,6 +68,7 @@
     "clickSpeed": {
         "recognition": "TemplateMatch",
         "template": "speed.png",
+        "desc": "点击消耗疲劳",
         "action": "Click",
         "pre_delay": 50,
         "timeout": 5000,
