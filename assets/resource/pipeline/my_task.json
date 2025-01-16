@@ -11,7 +11,11 @@
             "clickStartGame",
             "selectRole",
             "clickStartGame2",
-            "selectSkill"
+            "selectSkill",
+            "getResult",
+            "receive",
+            "clickStore",
+            "changeTan"
         ]
     },
     "clickTask": {
@@ -65,7 +69,8 @@
         "action": "Click",
         "pre_delay": 50,
         "next": [
-            "selectRole"
+            "selectRole",
+            "back"
         ]
     },
     "selectRole": {
@@ -104,8 +109,145 @@
         "expected": "确认",
         "action": "Click",
         "timeout": 2000,
+        "next": [
+            "getResult"
+        ],
         "on_error": [
             "selectSkill"
         ]
+    },
+    "getResult": {
+        "recognition": "TemplateMatch",
+        "template": "back.png",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "clickMail"
+        ]
+    },
+    "back": {
+        "recognition": "TemplateMatch",
+        "template": "back.png",
+        "action": "Click",
+        "pre_delay": 50
+    },
+    "clickMail": {
+        "recognition": "TemplateMatch",
+        "template": "mail.png",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "receive"
+        ]
+    },
+    "receive": {
+        "recognition": "OCR",
+        "expected": "领取全部物品",
+        "action": "Click",
+        "next": [
+            "receiveConfirm",
+            "backToStore"
+        ]
+    },
+    "receiveConfirm": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "timeout": 2000,
+        "next": [
+            "backToStore"
+        ]
+    },
+    "backToStore": {
+        "recognition": "TemplateMatch",
+        "template": "back.png",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "clickStore"
+        ]
+    },
+    "clickStore": {
+        "recognition": "OCR",
+        "expected": "兑换商店",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "clickStore2"
+        ]
+    },
+    "clickStore2": {
+        "recognition": "OCR",
+        "expected": "疲劳币商店",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "changeTan"
+        ]
+    },
+    "changeTan": {
+        "recognition": "OCR",
+        "expected": "炉岩炭",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "clickMax",
+            "back"
+        ]
+    },
+    "clickMax": {
+        "recognition": "OCR",
+        "expected": "最大",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "clickBuy"
+        ]
+    },
+    "clickBuy": {
+        "recognition": "OCR",
+        "expected": "购买",
+        "order_by": "Horizontal",
+        "index": 3,
+        "action": "Click",
+        "pre_delay": 50,
+        "timeout": 5000,
+        "next": [
+            "clickBuy2"
+        ]
+    },
+    "clickBuy2": {
+        "recognition": "OCR",
+        "expected": "确",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "backToHome"
+        ]
+    },
+    "backToHome": {
+        "recognition": "TemplateMatch",
+        "template": "back.png",
+        "action": "Click",
+        "pre_delay": 50,
+        "next": [
+            "closeStore"
+        ]
+    },
+    "closeStore": {
+        "recognition": "TemplateMatch",
+        "template": "close2.png",
+        "action": "Click",
+        "pre_delay": 50,
+        "post_wait_freezes": 1000,
+        "next": [
+            "switchRole"
+        ]
+    },
+    "switchRole": {
+        "recognition": "OCR",
+        "expected": "选角",
+        "action": "Click",
+        "pre_delay": 50
     }
 }
